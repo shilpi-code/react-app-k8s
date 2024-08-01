@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-react-app
+  namespace: react-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-react-app
+  template:
+    metadata:
+      labels:
+        app: my-react-app
+    spec:
+      containers:
+      - name: react-app
+        image: shilpi0808/react-app:latest
+        ports:
+        - containerPort: 80
+
